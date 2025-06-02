@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Analog Display</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script>
+    function fetchData() {
+      fetch("/data")
+        .then(response => response.json())
+        .then(data => {
+          const numberElement = document.getElementById("number");
+          numberElement.innerText = data.value;
+        });
+    }
+
+    setInterval(fetchData, 1000);
+    window.onload = fetchData;
+  </script>
+</head>
+<body class="p-5 text-center">
+  <h1>Live Number Display</h1>
+  <h2 id="number" class="display-1 text-primary">0</h2>
+</body>
+</html>
