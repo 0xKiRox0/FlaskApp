@@ -8,5 +8,5 @@ def index():
 
 @app.route("/data")
 def data():
-    value = random.randint(0, 100)
+    value = random.randint(0, 2800)
     return jsonify({"value": value})
